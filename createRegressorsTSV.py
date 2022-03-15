@@ -43,9 +43,9 @@ def main():
         os.mkdir(outpath)
 
     # grab filepaths
-    param_filepath = [ f for f in os.listdir(top_path) if "eddy_parameters" in f ][0]
-    rms_filepath = [ f for f in os.listdir(top_path) if "eddy_movement_rms" in f ][0]
-    rms_restricted_filepath = [ f for f in os.listdir(top_path) if "eddy_restricted_movement_rms" in f ][0]
+    param_filepath = top_path+'/'+[ f for f in os.listdir(top_path) if "eddy_parameters" in f ][0]
+    rms_filepath = top_path+'/'+[ f for f in os.listdir(top_path) if "eddy_movement_rms" in f ][0]
+    rms_restricted_filepath = top_path+'/'+[ f for f in os.listdir(top_path) if "eddy_restricted_movement_rms" in f ][0]
 
     # generate regressors .tsv file
     createRegressors(param_filepath, rms_filepath, rms_restricted_filepath,outpath+'/regressors.tsv')
