@@ -2,6 +2,27 @@
 [![Run on Brainlife.io](https://img.shields.io/badge/Brainlife-bl.app.610-blue.svg)](https://doi.org/10.25663/brainlife.app.610)
 
 # Convert quality control data from eddy to regressors datatype
+
+<!-- brainlife-app:begin (generated from the App manifest; edit the manifest, not this block) -->
+
+**Converts eddy quality-control outputs (motion parameters and RMS movement) into a regressors TSV for use as nuisance variables in statistical analyses; a conversion utility.**
+
+Reads the eddy_parameters, eddy_movement_rms and eddy_restricted_movement_rms files from an eddy output directory and writes regressors.tsv with translation, rotation, eddy-current terms and framewise displacement columns. Use it after an App that runs FSL eddy and keeps its QC files.
+
+Run it on brainlife.io: [https://doi.org/10.25663/brainlife.app.610](https://doi.org/10.25663/brainlife.app.610)
+
+| Input | Datatype | Required | Description |
+|---|---|---|---|
+| `topPath` | `raw` (eddyqc) | yes | Directory of eddy outputs. Must contain files matching eddy_parameters, eddy_movement_rms and eddy_restricted_movement_rms. |
+
+| Output | Datatype | Description |
+|---|---|---|
+| `regressors` | `neuro/regressors` | regressors.tsv with per-volume translation, rotation, eddy-current and framewise displacement columns. |
+
+Runtime: container `brainlife/freesurfer-stats:1.2`; 8 CPUs; 0.08 h walltime.
+
+<!-- brainlife-app:end -->
+
 This app will take quality control (qc) data from apps that run eddy and creates a regressors datatype that can be used as a regressors matrix for statistical analyses.
 
 ### Authors
